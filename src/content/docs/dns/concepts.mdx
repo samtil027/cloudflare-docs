@@ -19,9 +19,15 @@ Also known as domain name, a domain is the string of text that identifies a spec
 
 Before you can start using the Cloudflare DNS service, you must first have a domain. This is achieved by using a service called registrar. As explained in our [Learning Center](https://www.cloudflare.com/learning/dns/glossary/what-is-a-domain-name-registrar/), a registrar handles the reservation of domain names.
 
-Very often, the same company that offers domain registration also offers web hosting and DNS management.
+Very often the same company that offers domain registration also offers web hosting and DNS management.
 
-Cloudflare offers at-cost domain registration through [Cloudflare Registrar](/registrar/). Every domain acquired through Cloudflare Registrar must also use Cloudflare as primary authoritative DNS.
+You can register a domain name at coast through [Cloudflare Registrar](/registrar/). Every domain acquired through Cloudflare Registrar must also use Cloudflare as [primary authoritative DNS](#authoritative-dns).
+
+## Nameserver
+
+Although the resolution of a DNS query involves a number of different servers, in this documentation nameserver usually refers to the Cloudflare authoritative nameservers. As explained in the [article about DNS server types](https://www.cloudflare.com/learning/dns/dns-server-types/), the authoritative nameserver is the last stop in the resolution of a DNS query.
+
+Refer to [Nameservers](/dns/nameservers/) for details on the different nameserver offerings.
 
 ## Authoritative DNS
 
@@ -29,17 +35,15 @@ Authoritative DNS refers to the service whose nameservers provide the final info
 
 This is important because the performance of such authoritative DNS services determine how available, resilient, and performant your website or application is. Cloudflare DNS is an authoritative DNS service leveraging Cloudflare's global network. Refer to [How Cloudflare works](/fundamentals/concepts/how-cloudflare-works/) for details.
 
+## DNS setups
+
+
+
 ## Zone
 
 DNS zone is an administrative concept used for delegating control over DNS settings for different domains. You can read more about this in the [specific Learning Center article](https://www.cloudflare.com/learning/dns/glossary/dns-zone/).
 
-For the purpose of this documentation, keep in mind that each site added to a Cloudflare account is listed in the account home page as a zone. The exact properties and behaviors of your zone depend on its [setup option](/dns/zone-setups/).
-
-## Nameserver
-
-Although the resolution of a DNS query involves a number of different servers, in this documentation nameserver usually refers to the Cloudflare authoritative nameservers. As explained in the [article about DNS server types](https://www.cloudflare.com/learning/dns/dns-server-types/), the authoritative nameserver is the last stop in the query, the server that returns the IP address for the requested domain.
-
-When you have a domain using a [full setup](/dns/zone-setups/full-setup/), Cloudflare provides the authoritative nameservers for your domain. Refer to [Nameservers](/dns/nameservers/) for details on the different nameserver offerings.
+For the purpose of this documentation, keep in mind that each domain added to a Cloudflare account is listed in the account home page as a zone. The exact properties and behaviors of your zone depend on its [DNS setup](/dns/zone-setups/).
 
 ## DNS records
 
