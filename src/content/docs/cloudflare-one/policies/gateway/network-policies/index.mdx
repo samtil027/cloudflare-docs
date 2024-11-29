@@ -8,9 +8,7 @@ sidebar:
 import { Details, InlineBadge, Render } from "~/components";
 
 :::note
-
 To enable this feature, download and deploy the [WARP client](/cloudflare-one/connections/connect-devices/warp/deployment/) on your devices.
-
 :::
 
 With Cloudflare Zero Trust, you can configure policies to control network-level traffic leaving your endpoints. Using network selectors like IP addresses and ports, your policies will control access to any network origin. Because Cloudflare Zero Trust [integrates with your identity provider](/cloudflare-one/identity/idp-integration/), it also gives you the ability to create identity-based network policies. This means you can now control access to non-HTTP resources on a per-user basis regardless of where they are or what device they access that resource from.
@@ -41,6 +39,7 @@ API value: `allow`
 **Traffic**
 
 - [Application](#application)
+- [Content Categories](#content-categories)
 - [Destination Continent IP Geolocation](#destination-continent)
 - [Destination Country IP Geolocation](#destination-country)
 - [Destination IP](#destination-ip)
@@ -48,6 +47,7 @@ API value: `allow`
 - [Detected Protocol](#detected-protocol)
 - [Protocol](#protocol)
 - [Proxy Endpoint](#proxy-endpoint)
+- [Security Risks](#security-risks)
 - [SNI](#sni)
 - [SNI Domain](#sni-domain)
 - [Source Continent IP Geolocation](#source-continent)
@@ -134,6 +134,7 @@ API value: `block`
 **Traffic**
 
 - [Application](#application)
+- [Content Categories](#content-categories)
 - [Destination Continent IP Geolocation](#destination-continent)
 - [Destination Country IP Geolocation](#destination-country)
 - [Destination IP](#destination-ip)
@@ -141,6 +142,7 @@ API value: `block`
 - [Detected Protocol](#detected-protocol)
 - [Protocol](#protocol)
 - [Proxy Endpoint](#proxy-endpoint)
+- [Security Risks](#security-risks)
 - [SNI](#sni)
 - [SNI Domain](#sni-domain)
 - [Source Continent IP Geolocation](#source-continent)
@@ -171,7 +173,7 @@ Policies with Block actions block network traffic from reaching certain IPs or p
 | ---------------- | -------- | ----- | ------ |
 | Destination Port | in       | `443` | Block  |
 
-#### WARP client block notifications <InlineBadge preset="early-access" />
+#### WARP client block notifications
 
 <Render file="gateway/client-notifications" />
 
@@ -218,7 +220,7 @@ Policies with Network Override actions override traffic directed to, or coming f
 | -------------- | -------- | --------------- | ----- | ---------------- |
 | Destination IP | in       | `95.92.143.151` | And   | Network Override |
 | User Email     | in       | `*@example.com` | And   |                  |
-| Override IP    |          | 10.0.0.1        |       |                  |
+| Override IP    |          | `10.0.0.1`      |       |                  |
 
 ## Selectors
 
@@ -227,6 +229,13 @@ Gateway matches network traffic against the following selectors, or criteria.
 ### Application
 
 <Render file="gateway/selectors/application" params={{ one: "network" }} />
+
+### Content Categories
+
+<Render
+	file="gateway/selectors/net-http-content-categories"
+	params={{ APIendpoint: "net.fqdn.content_category" }}
+/>
 
 ### Destination Continent
 
@@ -272,6 +281,13 @@ To enable Gateway filtering on TCP and UDP, go to **Settings** > **Network** > *
 
 <Render file="gateway/selectors/proxy-endpoint" />
 
+### Security Risks
+
+<Render
+	file="gateway/selectors/security-risks"
+	params={{ APIendpoint: "net.fqdn.security_category" }}
+/>
+
 ### SNI
 
 <Render file="gateway/selectors/sni" />
@@ -292,7 +308,7 @@ The country of the user making the request. <Render file="gateway/selectors/sour
 
 <Render
 	file="gateway/selectors/source-internal-ip"
-	params={{ one: "network", two: "net" }}
+	params={{ one: "network", two: "net.src.internal_src_ip" }}
 />
 
 ### Source IP

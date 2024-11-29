@@ -52,6 +52,10 @@ export default {
 
 To define environment variables for different environments, refer to the example below:
 
+import { WranglerConfig } from "~/components";
+
+<WranglerConfig>
+
 ```toml
 name = "my-worker-dev"
 
@@ -65,6 +69,8 @@ API_HOST = "production.example.com"
 API_ACCOUNT_ID = "production_example_user"
 SERVICE_X_DATA = { URL = "service-x-api.prod.example", MY_ID = 456 }
 ```
+
+</WranglerConfig>
 
 For local development with `wrangler dev`, variables in `wrangler.toml` are automatically overridden by any values defined in a `.dev.vars` file located in the root directory of your worker. This is useful for providing values you do not want to check in to source control.
 
@@ -83,16 +89,15 @@ To add environment variables via the dashboard:
 2. Select **Workers & Pages**.
 3. In **Overview**, select your Worker.
 4. Select **Settings**.
-5. Select **Variables**.
-6. Under **Environment Variables**, select **Add variable**.
-7. Input a **Variable name** and its **Value**, which will be made available to your Worker.
-8. (Optional) To add multiple environment variables, select **Add variable**.
-9. Select **Save and deploy** to implement your changes.
+5. Under **Variables and Secrets**, select **Add**.
+6. Select a **Type**, input a **Variable name**, and input its **Value**. This variable will be made available to your Worker.
+7. (Optional) To add multiple environment variables, select **Add variable**.
+8. Select **Deploy** to implement your changes.
 
 :::caution[Plaintext strings and secrets]
 
 
-Only select **Encrypt** if your environment variable is a [secret](/workers/configuration/secrets/).
+Select the **Secret** type if your environment variable is a [secret](/workers/configuration/secrets/).
 
 
 :::

@@ -138,7 +138,7 @@ Policies with Block actions block DNS queries to reach destinations you specify 
 
 When choosing the Block action, turn on **Display custom block page** to respond to queries with a block page and to specify the message you want to display to users who go to blocked websites. If the block page is disabled, Gateway will respond to blocked queries with an `A` record of `0.0.0.0` for IPv4 destinations, or with an `AAAA` record of `::` for IPv6 destinations. For more information, refer to the dedicated documentation on [customizing the block page](/cloudflare-one/policies/gateway/block-page/).
 
-#### WARP client block notifications <InlineBadge preset="early-access" />
+#### WARP client block notifications
 
 <Render file="gateway/client-notifications" />
 
@@ -286,7 +286,7 @@ Use this selector to match against the IP address of the authoritative nameserve
 
 ### Content Categories
 
-<Render file="gateway/selectors/content-categories" />
+<Render file="gateway/selectors/dns-content-categories" />
 
 <Render file="gateway/selectors/category-options" />
 
@@ -359,14 +359,14 @@ Use this selector to filter DNS responses by their `TXT` records.
 
 Use this selector to filter based on the continent that the query resolves to. Geolocation is determined from the IP address in the response. To specify a continent, enter its two-letter code into the **Value** field:
 
-- AF – Africa
-- AN – Antarctica
-- AS – Asia
-- EU – Europe
-- NA – North America
-- OC – Oceania
-- SA – South America
-- T1 – Tor network
+- AF - Africa
+- AN - Antarctica
+- AS - Asia
+- EU - Europe
+- NA - North America
+- OC - Oceania
+- SA - South America
+- T1 - Tor network
 
 | UI name                           | API example                     | Evaluation phase     |
 | --------------------------------- | ------------------------------- | -------------------- |

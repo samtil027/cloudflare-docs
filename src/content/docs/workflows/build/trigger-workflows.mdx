@@ -31,6 +31,10 @@ New to Workflows? Start with the [Workflows tutorial](/workflows/get-started/gui
 
 To bind to a Workflow from your Workers code, you need to define a [binding](/workers/wrangler/configuration/) to a specific Workflow. For example, to bind to the Workflow defined in the [get started guide](/workflows/get-started/guide/), you would configure a `wrangler.toml` with the below:
 
+import { WranglerConfig } from "~/components";
+
+<WranglerConfig>
+
 ```toml title="wrangler.toml"
 name = "workflows-tutorial"
 main = "src/index.ts"
@@ -47,6 +51,8 @@ binding = "MY_WORKFLOW"
 class_name = "MyWorkflow"
 ```
 
+</WranglerConfig>
+
 The `binding = "MY_WORKFLOW"` line defines the JavaScript variable that our Workflow methods are accessible on, including `create` (which triggers a new instance) or `get` (which returns the status of an existing instance).
 
 The following example shows how you can manage Workflows from within a Worker, including:
@@ -62,20 +68,20 @@ interface Env {
 
 export default {
 	async fetch(req: Request, env: Env) {
-        //
-        const instanceId = new URL(req.url).searchParams.get("instanceId")
+    // Get instanceId from query parameters
+    const instanceId = new URL(req.url).searchParams.get("instanceId")
 
-        // If an ?instanceId=<id> query parameter is provided, fetch the status
-        // of an existing Workflow by its ID.
-        if (instanceId) {
-            let instance = await env.MY_WORKFLOW.get(instanceId);
+    // If an ?instanceId=<id> query parameter is provided, fetch the status
+    // of an existing Workflow by its ID.
+    if (instanceId) {
+      let instance = await env.MY_WORKFLOW.get(instanceId);
 			return Response.json({
 				status: await instance.status(),
 			});
-        }
+    }
 
-        // Else, create a new instance of our Workflow, passing in any (optional) params
-        // and return the ID.
+    // Else, create a new instance of our Workflow, passing in any (optional)
+    // params and return the ID.
 		const newId = await crypto.randomUUID();
 		let instance = await env.MY_WORKFLOW.create({ id: newId });
 		return Response.json({

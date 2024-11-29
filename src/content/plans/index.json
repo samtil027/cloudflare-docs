@@ -278,7 +278,7 @@
 					"pro": "No",
 					"biz": "No",
 					"ent": "Yes"
-				}	
+				}
 			}
 		},
 		"cache_level": {
@@ -1461,7 +1461,7 @@
 				},
 				"tcp_protection": {
 					"title": "Advanced TCP Protection",
-					"link": "/ddos-protection/tcp-protection/",
+					"link": "/ddos-protection/advanced-ddos-systems/overview/advanced-tcp-protection/",
 					"free": "Available to [Magic Transit](/magic-transit/) customers",
 					"pro": "Available to [Magic Transit](/magic-transit/) customers",
 					"biz": "Available to [Magic Transit](/magic-transit/) customers",
@@ -1470,7 +1470,7 @@
 				},
 				"u_dns_protection": {
 					"title": "Advanced DNS Protection",
-					"link": "/ddos-protection/dns-protection/",
+					"link": "/ddos-protection/advanced-ddos-systems/overview/advanced-dns-protection/",
 					"free": "Available to [Magic Transit](/magic-transit/) customers",
 					"pro": "Available to [Magic Transit](/magic-transit/) customers",
 					"biz": "Available to [Magic Transit](/magic-transit/) customers",
@@ -1680,12 +1680,12 @@
 				},
 				"managed_rulesets_response": {
 					"title": "Cloudflare Sensitive Data Detection",
-					"summary": "Enterprise-only",
+					"summary": "Enterprise with add-on",
 					"link": "/waf/managed-rules/reference/sensitive-data-detection/",
 					"free": "No",
 					"pro": "No",
 					"biz": "No",
-					"ent": "Yes"
+					"ent": "Paid add-on"
 				}
 			}
 		},
@@ -2785,34 +2785,34 @@
 					"ent": "Yes"
 				}
 			}
-    },
-    "client_certificates": {
-      "title": "Client Certificates",
-      "link": "/ssl/client-certificates/",
-      "properties": {
-        "availability": {
-          "title": "Availability",
-          "summary": "Available on all plans.",
-          "free": "Yes",
-          "pro": "Yes",
-          "biz": "Yes",
-          "ent": "Yes"
-        },
-        "quantity": {
-          "title": "Client Certificates included, issued by a Cloudflare Managed CA",
-          "free": 100,
-          "pro": 100,
-          "biz": 100,
-          "ent": "100 (default), but can allocate more quota."
-        },
-        "byo_ca": {
-          "title": "[Bring your own CA](/ssl/client-certificates/byo-ca/)",
-          "free": "No",
-          "pro": "No",
-          "biz": "No",
-          "ent": "Yes"
-        }
-      }
+		},
+		"client_certificates": {
+			"title": "Client Certificates",
+			"link": "/ssl/client-certificates/",
+			"properties": {
+				"availability": {
+					"title": "Availability",
+					"summary": "Available on all plans.",
+					"free": "Yes",
+					"pro": "Yes",
+					"biz": "Yes",
+					"ent": "Yes"
+				},
+				"quantity": {
+					"title": "Client Certificates included, issued by a Cloudflare Managed CA",
+					"free": 100,
+					"pro": 100,
+					"biz": 100,
+					"ent": "100 (default), but can allocate more quota."
+				},
+				"byo_ca": {
+					"title": "[Bring your own CA](/ssl/client-certificates/byo-ca/)",
+					"free": "No",
+					"pro": "No",
+					"biz": "No",
+					"ent": "Yes"
+				}
+			}
 		}
 	},
 	"support": {

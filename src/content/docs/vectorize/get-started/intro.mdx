@@ -118,11 +118,17 @@ You must create a binding for your Worker to connect to your Vectorize index. [B
 
 To bind your index to your Worker, add the following to the end of your `wrangler.toml` file:
 
+import { WranglerConfig } from "~/components";
+
+<WranglerConfig>
+
 ```toml
 [[vectorize]]
 binding = "VECTORIZE" # available in your Worker on env.VECTORIZE
 index_name = "tutorial-index"
 ```
+
+</WranglerConfig>
 
 Specifically:
 
@@ -394,6 +400,8 @@ export default {
 	},
 } satisfies ExportedHandler<Env>;
 ```
+
+You can also use the Vectorize `queryById()` operation to search for vectors similar to a vector that is already present in the index.
 
 ## 7. Deploy your Worker
 
