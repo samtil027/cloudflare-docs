@@ -24,7 +24,7 @@ Use one of the following API endpoints:
 | [List zone rulesets][lr-zone]       | `GET /zones/{zone_id}/rulesets`       |
 
 [lr-account]: /api/operations/listAccountRulesets
-[lr-zone]: /api/operations/listZoneRulesets
+[lr-zone]: /api/resources/rulesets/methods/list/
 
 The result includes rulesets across all phases at a given level (account or zone). The `phase` field in each result element indicates the [phase](/ruleset-engine/about/phases/) where that ruleset is defined.
 
@@ -76,9 +76,9 @@ Use one of the following API endpoints:
 | [Get a zone entry point ruleset][gep-zone]        | `GET /zones/{zone_id}/rulesets/phases/{phase_name}/entrypoint`       |
 
 [gr-account]: /api/operations/getAccountRuleset
-[gr-zone]: /api/operations/getZoneRuleset
+[gr-zone]: /api/resources/rulesets/methods/get/
 [gep-account]: /api/operations/getAccountEntrypointRuleset
-[gep-zone]: /api/operations/getZoneEntrypointRuleset
+[gep-zone]: /api/resources/rulesets/subresources/phases/methods/get/
 
 :::note
 You can only use the _Get a zone ruleset_ operation for zone-level phase entry points (entry points where `kind` is set to `zone`).
@@ -139,9 +139,9 @@ Use one of the following API endpoints:
 | [List zone entry point ruleset versions][lev-zone]       | `GET /zones/{zone_id}/rulesets/phases/{phase_name}/entrypoint/versions`       |
 
 [lv-account]: /api/operations/listAccountRulesetVersions
-[lv-zone]: /api/operations/listZoneRulesetVersions
+[lv-zone]: /api/resources/rulesets/subresources/versions/methods/list/
 [lev-account]: /api/operations/listAccountEntrypointRulesetVersions
-[lev-zone]: /api/operations/listZoneEntrypointRulesetVersions
+[lev-zone]: /api/resources/rulesets/subresources/phases/subresources/versions/methods/list/
 
 The result contains the ruleset properties of each version, but it does not include the list of rules. Refer to [View a specific version of a ruleset](#view-a-specific-version-of-a-ruleset) for instructions on obtaining this information.
 
@@ -196,9 +196,9 @@ Use one of the following API endpoints:
 | [Get a zone entry point ruleset version][gerv-zone]        | `GET /zones/{zone_id}/rulesets/phases/{phase_name}/entrypoint/versions/{version_number}`       |
 
 [grv-account]: /api/operations/getAccountRulesetVersion
-[grv-zone]: /api/operations/getZoneRulesetVersion
+[grv-zone]: /api/resources/rulesets/subresources/versions/methods/get/
 [gerv-account]: /api/operations/getAccountEntrypointRulesetVersion
-[gerv-zone]: /api/operations/getZoneEntrypointRulesetVersion
+[gerv-zone]: /api/resources/rulesets/subresources/phases/subresources/versions/methods/get/
 
 When the specified phase entry point ruleset does not exist, this API method returns a `404 Not Found` HTTP status code.
 

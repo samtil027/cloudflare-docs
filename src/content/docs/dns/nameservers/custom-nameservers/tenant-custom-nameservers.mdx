@@ -32,7 +32,7 @@ For this configuration to be possible, a few conditions apply:
 
 If you are an account owner and your account is part of a tenant that has custom nameservers, do the following:
 
-1. Use a [PUT command](/api/operations/account-level-custom-nameservers-usage-for-a-zone-set-account-custom-nameserver-related-zone-metadata) and specify `ns_type` and `ns_set`.
+1. Use a [PUT command](/api/resources/zones/subresources/custom_nameservers/methods/update/) and specify `ns_type` and `ns_set`.
 
 ```bash
 curl --request PUT https://api.cloudflare.com/client/v4/zones/{zone_id}/custom_ns \
@@ -66,7 +66,7 @@ To make these TCNS the default namerservers for all new zones added to your acco
 ```
 ### Disable tenant custom nameservers on a zone
 
-To remove TCNS and their associated DNS records from a zone, use a [PUT command](/api/operations/account-level-custom-nameservers-usage-for-a-zone-set-account-custom-nameserver-related-zone-metadata).
+To remove TCNS and their associated DNS records from a zone, use a [PUT command](/api/resources/zones/subresources/custom_nameservers/methods/update/).
 
 If you are **not** using [Cloudflare Registrar](/registrar/), also remove the TCNS at your domain’s registrar.
 
