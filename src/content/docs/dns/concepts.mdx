@@ -37,13 +37,13 @@ This is important because the performance of such authoritative DNS services det
 
 ## DNS setups
 
-It is also possible that one same company will use more than one DNS provider. Usually, this relates to making a domain even more resilient - if one provider faces an outage, the nameservers operated by the other DNS provider will most likely still be available.
+It is also possible that one same company will use more than one DNS provider. Usually, this relates to making a domain more resilient - if one provider faces an outage, the nameservers operated by the other DNS provider will most likely still be available.
 
 In this context, you can have a primary DNS setup, when you use Cloudflare to manage your DNS records, or a [secondary DNS setup](/dns/zone-setups/zone-transfers/cloudflare-as-secondary/), when your DNS records are managed on a different provider and Cloudflare simply receives zone transfers containing your DNS records.
 
 When you have a primary DNS setup, you can either use only Cloudflare (also known as [Full setup](/dns/zone-setups/full-setup/)), or you can use Cloudflare and another provider, where the other provider is the one to receive [outgoing zone transfers](/dns/zone-setups/zone-transfers/cloudflare-as-primary/) from Cloudflare.
 
-Finally, as Cloudflare also works as a [reverse proxy](/fundamentals/concepts/how-cloudflare-works/#how-cloudflare-works-as-a-reverse-proxy), partial (CNAME) setups can be used when you do not want Cloudflare to be [authoritative](#authoritative-dns) for your domain but you still want to proxy individual subdomains through Cloudflare.
+Finally, as Cloudflare also works as a [reverse proxy](/fundamentals/concepts/how-cloudflare-works/#how-cloudflare-works-as-a-reverse-proxy), [partial (CNAME) setups](/dns/zone-setups/partial-setup/) can be used when you do not want Cloudflare to be [authoritative](#authoritative-dns) for your domain but you still want to proxy individual subdomains through Cloudflare.
 
 ## Zone
 
