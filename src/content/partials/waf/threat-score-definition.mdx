@@ -9,5 +9,5 @@ The threat score measures IP reputation across Cloudflare services. This score i
 The threat score of a request has a value from 0 to 100, where 0 indicates low risk. Values above 10 may represent spammers or bots, and values above 40 identify bad actors on the Internet.
 
 :::note[Recommendation]
-Currently the threat score is not being populated and always has the value `0`. It is not recommended that you create rules based on this score.
+Currently you should not create rules based on the threat score, since this score is no longer being populated.
 :::
