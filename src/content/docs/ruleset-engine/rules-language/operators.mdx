@@ -189,6 +189,11 @@ lower(http.request.uri.path) contains "/wp-login.php"
 Wildcard matching is only supported with the `wildcard` and `strict wildcard` operators, and regular expression matching is only supported with the `matches` operator.
 :::
 
+### Using Lists
+
+When selecting `Hostname` or `AS Num` as *Field*, you use the additionals `is in list` / `is not in list` operators.
+You first need to create a [List](/waf/tools/lists/custom-lists/).
+
 ### Wildcard matching
 
 The `wildcard` operator performs a case-insensitive match between a field value and a literal string containing zero or more `*` metacharacters. Each `*` metacharacter represents zero or more characters. The `strict wildcard` operator performs a similar match, but is case-sensitive.
