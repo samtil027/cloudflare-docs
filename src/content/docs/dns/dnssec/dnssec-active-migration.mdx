@@ -34,7 +34,7 @@ The provider you are migrating from must allow you to add DNSKEY records on the 
 
    To import the zone file using the API, refer to the [Import DNS Records endpoint](/api/resources/dns/subresources/records/methods/import/).
 
-3. Go to **DNS** > **Settings**, and select **Enable DNSSEC**. Or use the following [API request](/api/resources/dnssec/methods/edit/).
+3. Go to **DNS** > **Settings**, and select **Enable DNSSEC**. Or use the following [API request](/api/resources/dns/subresources/dnssec/methods/edit/).
 
 ```bash
 curl --request PATCH \
@@ -45,7 +45,7 @@ https://api.cloudflare.com/client/v4/zones/{zone_id}/dnssec \
 --data '{"status": "active"}'
 ```
 
-4. Go to **DNS** > **Settings**, and enable **Multi-signer DNSSEC**. Or use the following [API request](/api/resources/dnssec/methods/edit/).
+4. Go to **DNS** > **Settings**, and enable **Multi-signer DNSSEC**. Or use the following [API request](/api/resources/dns/subresources/dnssec/methods/edit/).
 
 ```bash
 curl --request PATCH \
