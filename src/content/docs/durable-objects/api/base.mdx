@@ -5,11 +5,39 @@ sidebar:
   order: 1
 ---
 
-import { Render, Tabs, TabItem, GlossaryTooltip, Type, MetaInfo } from "~/components";
+import { Render, Tabs, TabItem, GlossaryTooltip, Type, MetaInfo, TypeScriptExample } from "~/components";
 
-{/* DEFINITION OF DO BASE CLASS TBC */}
+The `DurableObject` base class is an abstract class which all Durable Objects inherit from. This base class provides a set of optional methods, frequently referred to as handler methods, which can respond to events, for example a webSocketMessage when using the [WebSocket Hibernation API](#/durable-objects/best-practices/websockets/#websocket-hibernation-api). To provide a concrete example, here is a Durable Object `MyDurableObject` which extends `DurableObject` and implements the fetch handler to return "Hello, World!" to the calling Worker.
+
+<TypeScriptExample>
+```ts
+export class MyDurableObject extends DurableObject {
+	constructor(ctx: DurableObjectState, env: Env) {
+		super(ctx, env);
+	}
+
+	async fetch(request: Request) {
+		return new Response("Hello, World!");
+	}
+}
+```
+</TypeScriptExample>
 
 ## Methods
+
+### `fetch`
+
+- <code>fetch(<Type text="Request"/>)</code>: <Type text="Response"/> | <Type text="Promise <Response>"/>
+
+  - Takes an HTTP request object and returns an HTTP response object. This method allows the Durable Object to emulate an HTTP server where a Worker with a binding to that object is the client.
+
+  - This method can be `async`.
+
+### `alarm`
+
+- <code>alarm()</code>: <Type text="Promise <void>"/>
+
+  - See [Alarms](/durable-objects/api/alarms/).
 
 ### `webSocketMessage`
 
@@ -39,7 +67,13 @@ import { Render, Tabs, TabItem, GlossaryTooltip, Type, MetaInfo } from "~/compon
 
 ## Properties
 
-{/* Properties of DO Base Class TBC */}
+### `DurableObjectState`
+
+See [`DurableObjectState` documentation](/durable-objects/api/state/).
+
+### `Env`
+
+A list of bindings which are available to the Durable Object.
 
 ## Related resources
 
